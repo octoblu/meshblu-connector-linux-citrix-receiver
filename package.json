@@ -20,6 +20,6 @@
     "debug": "^2.6.8",
     "lodash": "^4.17.4",
     "meshblu-connector-cli": "^1.1.6",
-    "storefront-ica-generator": "^2.1.1"
+    "storefront-ica-generator": "2.2.3"
   }
 }
