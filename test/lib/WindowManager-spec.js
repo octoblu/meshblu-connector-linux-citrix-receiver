@@ -70,5 +70,26 @@ describe('WindowManager', function() {
         })
       })
     })
+
+    describe('when there the target window has a space in the name', function() {
+      beforeEach(function() {
+        this.child_process.execFile.withArgs('wmctrl', ['-l'], { env: { DISPLAY: ':0' } }).yields(null, `
+          0x01c000ee  0 raspberrypi
+          0x01c000f0  0 raspberrypi Skype for Business
+        `)
+      })
+
+      describe('when called', function() {
+        beforeEach(function(done) {
+          this.child_process.execFile.withArgs('xdotool', ['windowminimize', '0x01c000f0'], { env: { DISPLAY: ':0' } }).yields()
+          this.sut.minimize('Skype for Business', done)
+        })
+
+        it('should have attempted to minimize the window', function() {
+          expect(this.child_process.execFile).to.have.been.calledTwice
+          expect(this.child_process.execFile).to.have.been.calledWith('xdotool', ['windowminimize', '0x01c000f0'], { env: { DISPLAY: ':0' } })
+        })
+      })
+    })
   })
 })
