@@ -1,6 +1,6 @@
 {
   "name": "meshblu-connector-linux-citrix-receiver",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "index.js",
   "repository": "git@github.com:octoblu/meshblu-connector-linux-citrix-receiver.git",
   "author": "sqrtofsaturn <sqrtofsaturn@gmail.com>",
